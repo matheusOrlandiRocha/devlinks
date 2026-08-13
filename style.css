@@ -29,13 +29,27 @@
     --switch-bg-url: url(/assets/sun.svg);
 }
 
+.light body::before {
+    opacity: 1;
+}
+
 body {
-    background: var(--bg-url) no-repeat top center/cover ; /* Short-hand */
-    /*background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    background-image: url(./assets/bg-mobile.jpg);*/
-    height: 100vh;
+    background: url(./assets/bg-mobile.jpg) no-repeat top center/cover ;
+    min-height: 100vh;
+    position:relative;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: var(--bg-url) no-repeat top center/cover;
+
+    opacity: 0;
+
+    transition: 1s ease;
 }
 
 body * {
@@ -51,6 +65,9 @@ body * {
     max-width:588px;
     margin: 56px auto 0px;
     padding: 0 24px;
+
+    position: relative;
+    z-index: 1;
 }
 
 
